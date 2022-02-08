@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from tamu.views import PageView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index', PageView.index, name="index"),
+    path('upload', PageView.upload, name="`upload"),
+    path('dashboard', PageView.dashboard, name="`dashboard"),
+    path('detail/<int:pk>', PageView.detail, name="`detail"),
 ]

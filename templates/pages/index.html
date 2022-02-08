@@ -2,4 +2,9 @@
 {% load static %}
 
 {% block content %}
+    <div class="container">
+        <form action="{% url 'upload' %}" method="post">
+            {% csrf_token %}
+        </form>
+    </div>
 {% endblock %}
