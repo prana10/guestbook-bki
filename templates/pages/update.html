@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block content %}
+<div class="container mt-5 mb-5">
+
+    <!-- messages -->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{% url 'edit' tamu.id %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="labelTanggal">Tanggal </label>
+            <input type="date" name="date" class="form-control" value="{{tamu.date}}">
+            <small id="tanggalHelp" class="form-text text-muted">tangggal Registrasi</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="labelInputNama">Nama </label>
+            <input type="text" name="name" class="form-control" placeholder="example nama" value="{{tamu.name}}">
+            <small id="namaHelp" class="form-text text-muted">Masukan Nama panjang anda</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputIntansi">Intansi </label>
+            <input type="text" name="origin_of_company" class="form-control" placeholder="example intansi" value="{{tamu.origin_of_company}}">
+            <small id="intansiHelp" class="form-text text-muted">Masukan Nama Intansi Anda</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputJaminan">Jaminan </label>
+            <input type="text" name="assurance" class="form-control" placeholder="example jaminan" value="{{tamu.assurance}}">
+            <small id="jaminanHelp" class="form-text text-muted">Apa jaminan yang Anda Berikan ? (contoh : ktp, kartu id, dll)</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputKeperluan">Keperluan </label>
+            <input type="text" name="necessary" class="form-control" placeholder="example keperluan" value="{{tamu.necessary}}">
+            <small id="keperluanHelp" class=" form-text text-muted">Apa Keperluan Anda ? (contoh: meeting, dll)</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputPertemuanDengan">Pertemuan Dengan </label>
+            <input type="text" name="appointment_with" class="form-control" placeholder="example name" value="{{tamu.appointment_with}}">
+            <small id="pertemuanDenganHelp" class="form-text text-muted">Dengan siapa anda ingin bertemu ?</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputJamMasuk">Jam Masuk </label>
+            <input type="time" name="arrival_time" class="form-control" value="{{tamu.arrival_time}}">
+            <small id="jamMasukHelp" class="form-text text-muted">jam masuk tamu</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputJamKeluar">Jam Keluar </label>
+            <input type="time" name="departure_time" class="form-control" placeholder="example name" value="{{tamu.departure_time}}">
+            <small id="jamKeluarHelp" class="form-text text-muted">Jam Keluar</small>
+        </div>
+
+        <div class="form-group">
+            <label for="labelInputPhoto">Foto </label>
+            <input type="file" name="photo" class="form-control" placeholder="example name" value="{{tamu.photo}}">
+            <small id="photoHelp" class="form-text text-muted">foto dapat berupa foto idcard, foto selfi,dll</small>
+        </div>
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block">submit</button>
+  </form>
+</div>
+{% endblock %}

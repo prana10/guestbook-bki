@@ -28,12 +28,22 @@ class PageView():
         tamu = Tamu.objects.all()
         return render(request, 'pages/dashboard.html', {'tamu': tamu})
 
-    def detail(request, pk):
+    def update(request, pk):
         tamu = Tamu.objects.get(id = pk)
-        return render(request, 'pages/detail.html', {'tamu': tamu})
+        return render(request,'pages/update.html',{'tamu':tamu})
+        
+    def edit(request,pk):
+        tamu = Tamu.objects.get(id = pk)
+        tamu.departure_time = request.POST.get('departure_time')
+        tamu.save()
+        messages.success(request, "Update Tamu success")
+        return redirect('dashboard')    
 
-    def update(request):
-        pass
+    def delete(request, pk):
+        tamu = Tamu.objects.get(id = pk)
+        tamu.delete()
+        messages.success(request, "Tamu Success Deleted")
+        return redirect('dashboard')
 
     # export excel
     def export_tamu_xls(request):
