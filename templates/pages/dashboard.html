@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{%block content %}
+<div class="mt-5 mb-5 p-4">
+
+	<!-- alert messages -->
+	{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<div class="alert alert-success" role="alert">
+					{{message}}
+				</div>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+
+	<a href="{% url 'export' %}" class="btn btn-success mb-3">Export Excel</a>
+	<a href="{% url 'index' %}" class="btn btn-primary mb-3">Add Tamu</a>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">Tanggal</th>
+				<th scope="col">Nama</th>
+				<th scope="col">Intansi</th>
+				<th scope="col">Jaminan</th>
+				<th scope="col">Keperluan</th>
+				<th scope="col">Pertemuan Dengan</th>
+				<th scope="col">jam Masuk</th>
+				<th scope="col">jam Keluar</th>
+				<th scope="col">Foto</th>
+				<th scope="col" colspan="2">Other</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for list_tamu in tamu %}
+			<tr>
+				<th>{{list_tamu.id}}</th>
+				<td>{{list_tamu.date}}</td>
+				<td>{{list_tamu.name}}</td>
+				<td>{{list_tamu.origin_of_company}}</td>
+				<td>{{list_tamu.assurance}}</td>
+				<td>{{list_tamu.necessary}}</td>
+				<td>{{list_tamu.appointment_with}}</td>
+				<td>{{list_tamu.arrival_time}}</td>
+				<td>{{list_tamu.departure_time}}</td>
+				<td>{{list_tamu.photo}}</td>
+				<td>
+					<a href="{% url 'update' list_tamu.id %}" class="btn btn-primary">Edit</a>
+				</td>
+				<td>
+					<a href="{% url 'delete' list_tamu.id %}" class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

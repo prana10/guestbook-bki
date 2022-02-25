@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from tamu.views import PageView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index', PageView.index, name="index"),
+    path('upload', PageView.upload, name="upload"),
+    path('dashboard', PageView.dashboard, name="dashboard"),
+    path('delete/<int:pk>', PageView.delete, name="delete"),
+    path('update/<int:pk>', PageView.update, name="update"),
+    path('edit/<int:pk>', PageView.edit, name="edit"),
+    path('export_all/', PageView.export_tamu_xls, name="export"),
 ]
