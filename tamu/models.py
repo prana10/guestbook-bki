@@ -10,4 +10,4 @@ class Tamu(models.Model):
     arrival_time = models.TimeField(auto_now_add=True, null=False)
     departure_time = models.TimeField(null=True)
     date = models.DateField(auto_now_add=True, null=False)
-    photo = models.TextField(null=False)
+    photo = models.FileField(null=False)
