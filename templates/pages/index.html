@@ -6,13 +6,11 @@
 
     <!-- messages -->
     {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
+    {% for message in messages %}
         <div class="alert alert-success" role="alert">
             {{message}}
         </div>
         {% endfor %}
-    </ul>
     {% endif %}
 
     <form action="{% url 'upload' %}" method="post">
