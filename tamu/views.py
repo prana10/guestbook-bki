@@ -2,12 +2,13 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 import xlwt
-from tamu.models import Tamu
+from tamu.models import DataList, Tamu
 
 # Create your views here.
 class PageView():
     def index(request):
-        return render(request, 'pages/index.html')
+        datalist = DataList.objects.all()
+        return render(request, 'pages/index.html', {'datalist': datalist})
 
     def upload(request):
         tamu = Tamu()

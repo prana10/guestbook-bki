@@ -7,10 +7,10 @@
     <!-- messages -->
     {% if messages %}
     {% for message in messages %}
-        <div class="alert alert-success" role="alert">
-            {{message}}
-        </div>
-        {% endfor %}
+    <div class="alert alert-success" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
     {% endif %}
 
     <form action="{% url 'upload' %}" method="post">
@@ -30,7 +30,8 @@
         <div class="form-group">
             <label for="labelInputJaminan">Jaminan </label>
             <input type="text" name="assurance" class="form-control" placeholder="example jaminan">
-            <small id="jaminanHelp" class="form-text text-muted">Apa jaminan yang Anda Berikan ? (contoh : ktp, kartu id, dll)</small>
+            <small id="jaminanHelp" class="form-text text-muted">Apa jaminan yang Anda Berikan ? (contoh : ktp, kartu
+                id, dll)</small>
         </div>
 
         <div class="form-group">
@@ -41,17 +42,24 @@
 
         <div class="form-group">
             <label for="labelInputPertemuanDengan">Pertemuan Dengan </label>
-            <input type="text" name="appointment_with" class="form-control" placeholder="example name">
+            <input type="text" name="appointment_with" class="form-control" placeholder="example name" list="pertemuanDengan">
+            <datalist id="pertemuanDengan">
+                {% for data in datalist %}
+                    <option value="{{data.name}}">
+                {% endfor %}
+            </datalist>
             <small id="pertemuanDenganHelp" class="form-text text-muted">Dengan siapa anda ingin bertemu ?</small>
         </div>
 
         <div class="form-group">
-            <label for="labelInputPertemuanDengan">Foto </label>
+            <label for="labelInputPhoto">Foto </label>
             <input type="file" name="photo" class="form-control" placeholder="example name">
-            <small id="pertemuanDenganHelp" class="form-text text-muted">foto dapat berupa foto idcard, foto selfi,dll</small>
+            <small id="pertemuanDenganHelp" class="form-text text-muted">foto dapat berupa foto idcard, foto
+                selfi,dll</small>
         </div>
 
-      <button type="submit" class="btn btn-primary btn-lg btn-block">submit</button>
-  </form>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">submit</button>
+    </form>
 </div>
+
 {% endblock %}

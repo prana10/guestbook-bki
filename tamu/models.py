@@ -11,3 +11,8 @@ class Tamu(models.Model):
     departure_time = models.TimeField(null=True)
     date = models.DateField(auto_now_add=True, null=False)
     photo = models.FileField(null=False)
+
+
+class DataList(models.Model):
+    name = models.TextField(null=False)
+    divisi = models.TextField(null=False)
