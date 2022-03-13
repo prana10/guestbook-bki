@@ -7,7 +7,7 @@ from tamu.models import Tamu
 # Create your views here.
 class PageView():
     def index(request):
-        return render(request, 'pages/index.html')
+        return render(request, 'pages/formpage.html')
 
     def upload(request):
         tamu = Tamu()
@@ -22,7 +22,7 @@ class PageView():
         tamu.photo = request.POST.get('photo')
         tamu.save()
         messages.success(request, 'success added')
-        return redirect('index')
+        return redirect(request, 'pages/success.html')
 
     def dashboard(request):
         tamu = Tamu.objects.all()

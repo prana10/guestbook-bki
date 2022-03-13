@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static 'css/master.css' %} {% block content %}
+<section class="h-100">
+  <div class="container">
+    <div class="row justify-content-md-center h-100">
+      <div class="card-wrapper">
+        <div class="card fat">
+          <img
+            src="{% load static 'image/logo-bki.png' %}"
+            alt="logo"
+            class="card-img-top img-bki"
+          />
+          <h4 class="text-center title-bki">PT. Biro Klasifikasi Indonesia</h4>
+          <hr class="line-title" />
+          <!-- Header Success -->
+          <div class="card-body text-center">
+            <img
+              src="assets/image/check-symbol-4794.svg"
+              alt=""
+              class="icon-success"
+            />
+            <h4 class="text-center mt-3 primary-bki">Successfully Submited</h4>
+            <div class="form-group mt-3 d-grid">
+              <a
+                href="https://www.bki.co.id/"
+                class="btn btn-sm btn-outline-primary btn-block"
+                ><i class="uil uil-globe"></i> Our Website</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          Copyright &copy; 2022 &mdash; PT. BIRO KLASIFIKASI INDONESIA
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

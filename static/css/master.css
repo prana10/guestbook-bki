@@ -1,3 +1,155 @@
-.container {
-    margin: 20px;
+/* Import FOnt */
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+body.register-data {
+  background-color: #f7f9fb;
+  font-size: 14px;
+}
+
+.register-data .brand {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  margin: 40px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.register-data .card img.img-bki {
+  width: 150px;
+  margin: auto;
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+.register-data .card-wrapper {
+  width: 400px;
+}
+
+.register-data .card {
+  border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.register-data .card.fat {
+  margin-top: 45px;
+  padding: 10px;
+}
+.register-data .card .title-bki {
+  color: #15476e;
+  font-weight: 600;
+  /* padding: 5px 2px; */
+  padding-top: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  /* padding-top: 10px; */
+}
+.register-data .card .card-title {
+  margin-bottom: 30px;
+}
+
+.register-data .form-control {
+  border-width: 2.3px;
+}
+
+.register-data .form-group {
+  margin-top: 5px;
+}
+.register-data .form-group label {
+  width: 100%;
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.register-data .form-control.upload {
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 15px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-clip: padding-box;
+  border: 2px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.register-data .btn.btn-block {
+  padding: 12px 10px;
+}
+
+.register-data .footer {
+  margin: 40px 0;
+  color: #888;
+  text-align: center;
+}
+
+/* Any Selector CSS */
+#custom-text {
+  font-weight: 400;
+  align-self: center;
+}
+
+.btn-outline-primary {
+  color: #15476e;
+  border-color: #15476e;
+}
+
+.btn-outline-primary:hover {
+  color: rgb(255, 255, 255);
+  background-color: #15476e;
+  border-color: rgb(255, 255, 255);
+}
+
+img.icon-success {
+  justify-content: center;
+  width: 50px;
+}
+
+.primary-bki {
+  color: #15476e;
+}
+
+.line-title {
+  color: #15476e;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  width: 320px;
+  align-self: center;
+}
+@media screen and (max-width: 425px) {
+  .register-data .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .register-data .card.fat {
+    padding: 0;
+  }
+
+  .register-data .card.fat .card-body {
+    padding: 15px;
+  }
 }
