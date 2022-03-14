@@ -1,5 +1,6 @@
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -10,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-vwl5ji+ltd^n=qu_&7-l=*k&lmtzv9^eh=-v(*q%_goo!wv)p8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -19,7 +20,7 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
     '12.0.0.1',
     'localhost',
-    'bki-backend.herokuapp.com',
+    'guestbookbki.herokuapp.com',
 ]
 
 
@@ -33,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -44,7 +44,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'bki_backend.urls'
@@ -85,6 +84,10 @@ DATABASES = {
     }
 }
 
+# db from heroku
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -121,8 +124,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
