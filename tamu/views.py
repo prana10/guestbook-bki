@@ -7,6 +7,7 @@ from tamu.models import DataList, Tamu
 # Create your views here.
 class PageView():
     def index(request):
+        return render(request, 'pages/formpage.html')
 
     def upload(request):
         tamu = Tamu()
