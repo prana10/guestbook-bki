@@ -1,44 +1,23 @@
-{% extends 'base.html' %} {% load static 'css/master.css' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <section class="h-100">
   <div class="container">
     <div class="row justify-content-md-center h-100">
       <div class="card-wrapper">
         <div class="card fat">
-          <img
-            src="{% load static 'image/logo-bki.png' %}"
-            alt="logo"
-            class="card-img-top img-bki"
-          />
+          <img src="{% static 'image/logo-bki.png' %}" alt="logo" class="card-img-top img-bki" />
           <h4 class="text-center title-bki">PT. Biro Klasifikasi Indonesia</h4>
           <div class="card-body">
-            <form
-              method="POST"
-              action="{% url 'upload' %}"
-              class="my-login-validation"
-              novalidate=""
-            >
+            <form method="POST" action="{% url 'upload' %}" class="my-login-validation" novalidate="" enctype="multipart/form-data">
               {% csrf_token %}
               <div class="form-group">
                 <label for="nama">Nama </label>
-                <input
-                  id="nama"
-                  type="text"
-                  class="form-control"
-                  name="name"
-                  required
-                />
+                <input id="nama" type="text" class="form-control" name="name" required />
                 <div class="invalid-feedback">Harap masukan nama anda.</div>
               </div>
 
               <div class="form-group">
                 <label for="company">Nama Instansi </label>
-                <input
-                  id="company"
-                  type="text"
-                  class="form-control"
-                  name="origin_of_company"
-                  required
-                />
+                <input id="company" type="text" class="form-control" name="origin_of_company" required />
                 <div class="invalid-feedback">
                   Harap Masukan nama instansi anda.
                 </div>
@@ -46,13 +25,12 @@
 
               <div class="form-group">
                 <label for="input-jaminan">Jaminan</label>
-                <input
-                  id="assurance"
-                  type="text"
-                  class="form-control"
-                  name="assurance"
-                  required
-                />
+                <input id="assurance" type="text" class="form-control" name="assurance" list="assuranceList" required />
+                <datalist id="assuranceList">
+                  {% for list in assurancelist %}
+                  <option value="{{list.type_assurance}}">
+                    {% endfor %}
+                </datalist>
                 <div id="input-jaminan" class="invalid-feedback">
                   Harap pilih jaminan anda.
                 </div>
@@ -60,13 +38,7 @@
 
               <div class="form-group">
                 <label for="keperluan">Keperluan </label>
-                <input
-                  id="keperluan"
-                  type="text"
-                  class="form-control"
-                  name="necessary"
-                  required
-                />
+                <input id="keperluan" type="text" class="form-control" name="necessary" required />
                 <div class="invalid-feedback">
                   Harap masukan keperluan anda.
                 </div>
@@ -74,13 +46,13 @@
 
               <div class="form-group">
                 <label for="with">Pertemuan Dengan </label>
-                <input
-                  id="with"
-                  type="text"
-                  class="form-control"
-                  name="appointment_with"
-                  required
-                />
+                <input id="with" type="text" class="form-control" name="appointment_with" list="appointmentList"
+                  required />
+                <datalist id="appointmentList">
+                  {% for list in datalist %}
+                  <option value="{{list.name}}">
+                    {% endfor %}
+                </datalist>
                 <div class="invalid-feedback">
                   Harap masukan nama yang ingin anda temui.
                 </div>
@@ -88,24 +60,9 @@
 
               <div class="form-group">
                 <label for="file-upload">Foto </label>
-                <input
-                  type="file"
-                  id="real-file"
-                  hidden="hidden"
-                  accept="image/*"
-                  name="photo"
-                  capture
-                  required
-                />
-                <button
-                  type="button"
-                  id="custom-button"
-                  class="form-control"
-                  required
-                >
-                  <span id="custom-text"
-                    ><i class="uil uil-camera"></i> Open Your Camera</span
-                  >
+                <input type="file" id="real-file" hidden="hidden" accept="image/*" name="photo" capture required />
+                <button type="button" id="custom-button" class="form-control" required>
+                  <span id="custom-text"><i class="uil uil-camera"></i> Open Your Camera</span>
                 </button>
                 <div class="invalid-feedback">
                   Harap masukan gambar untuk bukti autentik.
@@ -113,10 +70,7 @@
               </div>
 
               <div class="form-group mt-3">
-                <button
-                  type="submit"
-                  class="btn btn-sm btn-outline-primary btn-block"
-                >
+                <button type="submit" class="btn btn-sm btn-outline-primary btn-block">
                   Kirim Data
                 </button>
               </div>
