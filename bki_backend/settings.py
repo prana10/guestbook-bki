@@ -18,7 +18,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    '12.0.0.1',
+    '127.0.0.1',
     'localhost',
     'guestbookbki.herokuapp.com',
 ]
