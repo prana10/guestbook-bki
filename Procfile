@@ -1,0 +1,1 @@
+web: gunicorn <BKI-BACKEND>.wsgi --log-file -
