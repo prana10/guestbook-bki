@@ -22,7 +22,7 @@ class PageView():
         tamu.photo = request.POST.get('photo')
         tamu.save()
         messages.success(request, 'success added')
-        return redirect('index')
+        return redirect(request, 'pages/success.html')
 
     def dashboard(request):
         tamu = Tamu.objects.all()
